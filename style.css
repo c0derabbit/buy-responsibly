@@ -14,11 +14,11 @@ label {
   display: none;
 }
 
-input[id$=yes]:checked ~ div > label[for$=yes] {
+input[id$=yes]:checked ~ div > label[for*=yes] {
   background: #ddd;
 }
 
-input[id$=no]:checked + div > label[for$=no] {
+input[id$=no]:checked + div > label[for*=no] {
   background: #ddd;
 }
 
@@ -28,4 +28,12 @@ input[id$=yes]:checked ~ div > *[data-yes] {
 
 input[id$=no]:checked ~ div > *[data-no] {
   display: block;
+}
+
+input[id$=no-jump]:checked ~ #jump {
+  display: block;
+}
+
+input[id$=no]:not(:checked) ~ #jump [data-no] {
+  display: none;
 }
