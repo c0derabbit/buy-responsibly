@@ -1,0 +1,30 @@
+input[type=radio] {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  border: 2px solid;
+  padding: 2px;
+  min-width: 80px;
+}
+
+div:not(:first-of-type) {
+  display: none;
+}
+
+input[id$=yes]:checked + * + div > label[for$=yes] {
+  background: #ddd;
+}
+
+input[id$=no]:checked + div > label[for$=no] {
+  background: #ddd;
+}
+
+input[id$=yes]:checked ~ *[data-yes] {
+  display: block;
+}
+
+input[id$=no]:checked ~ *[data-no] {
+  display: block;
+}
