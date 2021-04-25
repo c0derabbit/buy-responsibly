@@ -1,3 +1,7 @@
+:root {
+  font: 20px sans-serif;
+}
+
 input[type=radio] {
   display: none;
 }
@@ -14,12 +18,12 @@ label {
   display: none;
 }
 
-input[id$=yes]:checked ~ div > label[for*=yes] {
-  background: #ddd;
+input[id$=yes]:checked ~ div > label[for*=no] {
+  opacity: .25;
 }
 
-input[id$=no]:checked + div > label[for*=no] {
-  background: #ddd;
+input[id$=no]:checked + div > label[for*=yes] {
+  opacity: .25;
 }
 
 input[id$=yes]:checked ~ div > *[data-yes] {
@@ -34,6 +38,6 @@ input[id$=no-jump]:checked ~ #jump {
   display: block;
 }
 
-input[id$=no]:not(:checked) ~ #jump [data-no] {
+input[id$=no]:not(:checked) ~ #jump *[data-no] {
   display: none;
 }
