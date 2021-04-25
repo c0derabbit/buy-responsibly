@@ -9,11 +9,12 @@ label {
   min-width: 80px;
 }
 
-div:not(:first-of-type) {
+*[data-yes],
+*[data-no] {
   display: none;
 }
 
-input[id$=yes]:checked + * + div > label[for$=yes] {
+input[id$=yes]:checked ~ div > label[for$=yes] {
   background: #ddd;
 }
 
@@ -21,10 +22,10 @@ input[id$=no]:checked + div > label[for$=no] {
   background: #ddd;
 }
 
-input[id$=yes]:checked ~ *[data-yes] {
+input[id$=yes]:checked ~ div > *[data-yes] {
   display: block;
 }
 
-input[id$=no]:checked ~ *[data-no] {
+input[id$=no]:checked ~ div > *[data-no] {
   display: block;
 }
