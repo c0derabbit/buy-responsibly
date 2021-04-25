@@ -1,7 +1,3 @@
-function end(text = '') {
-  () => alert(text)
-}
-
 var machine = {
   init: {
     text: 'Do you really need it?',
@@ -75,14 +71,21 @@ window.onload = function() {
   var question = document.getElementById('question')
   var yes = document.getElementById('yes')
   var no = document.getElementById('no')
+  var restart = document.getElementById('restart')
   var current = machine.init
   stepTo(current)
+
+  restart.onclick = function() {
+    stepTo(machine.init)
+    yes.style.visibility = 'visible'
+    no.style.visibility= 'visible'
+  }
 
   function stepTo(step) {
     if (step === 'end' || step.text === 'Buy it!') {
       question.innerText = step.text || current.endWith || 'Don’t buy!'
-      yes.style.display = 'none'
-      no.style.display = 'none'
+      yes.style.visibility = 'hidden'
+      no.style.visibility= 'hidden'
     } else {
       question.innerText = step.text
       current = step
